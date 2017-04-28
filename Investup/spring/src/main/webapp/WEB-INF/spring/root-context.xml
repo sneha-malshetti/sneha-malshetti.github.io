@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+		<bean id="investorValidator" class="com.investup.validator.InvestorValidator"></bean>
+		<bean id="registrationDao" class="com.investup.dao.RegistrationDAO" ></bean>
+		<bean id="adminDao" class="com.investup.dao.AdminDAO" ></bean>
+	
+	<bean id="startupValidator" class="com.investup.validator.StartupValidator"></bean>
+	<bean id="startupDao" class="com.investup.dao.StartupDAO"></bean>
+	<bean id="investorDao" class="com.investup.dao.InvestorDAO"></bean>
+	 <bean id="customMail" class="com.investup.utils.CustomMail"></bean>
+	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage"></bean>
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+       <property name="host" value="smtp.gmail.com" />
+       <property name="port" value="587" />
+       <property name="username" value="email@gmail.com" />
+       <property name="password" value="emailpassword" />
+       <property name="javaMailProperties">
+           <props>
+               <prop key="mail.transport.protocol">smtp</prop>
+               <prop key="mail.smtp.auth">true</prop>
+               <prop key="mail.smtp.starttls.enable">true</prop>
+           </props>
+       </property>
+   </bean>
+	<!-- <bean id="categoryDao" class="com.investup.dao.CategoryDAO" ></bean>
+	
+	<bean id="advertValidator" class="com.my.spring.validator.AdvertValidator"></bean>
+	<bean id="advertDao" class="com.my.spring.dao.AdvertDAO" ></bean> -->
+	
+</beans>
+
+	
+

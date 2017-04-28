@@ -1,0 +1,25 @@
+ 
+<h2>Search list</h2>
+
+#if(! $userList )
+ <h3>No Users Found !</h3>      
+#elseif($userList.size()==0)
+  <h3>No Users Found !</h3>       
+#else
+           <table border="1">
+                <tr>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Email</th>
+                    <th>Photo</th>
+                </tr>
+             #foreach($user in $userList)
+                 <tr>
+		            <td> $user.fname</td>
+		            <td> $user.lname</td>
+		            <td> $user.email</td>
+		            <td> <img height="150" width="150" src="$user.filename" /></td>
+	            </tr>
+	        #end
+            </table>
+#end
